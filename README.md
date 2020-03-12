@@ -1,6 +1,8 @@
 # Android-CTF
 
-Danh sách các tools sử dụng:
+Hệ điều hành: Windows hay Linux đều cài đặt được các tool và môi trường.
+
+Danh sách các tool sử dụng:
 - [Java 8u241](https://java.com/en/download/manual.jsp): đa số các tool cho android viết bằng java, bản thân app android cũng viết bằng java. Cài môi trường java 8u241 để dùng được cả các phần mềm Cr@cK, bản java cao hơn không dùng được. 
 - [Virtualbox](https://www.virtualbox.org/wiki/Downloads): máy ảo để chạy genymotion, chỉ cần cài virtualbox để cài genymotion là được. Tải riêng bằng link này, hoặc trong link tải genymotion chọn phần "download with virtualbox"
 - [Genymotion](https://www.genymotion.com/download/): môi trường chạy file
