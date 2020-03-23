@@ -18,7 +18,7 @@ Khi cần cài đặt file apk vào máy ảo, chúng ta chỉ cần đặt file
 install_app.bat [tên-file].apk
 ```
 
-![cmd](https://github.com/MinhNhatTran/Android-CTF/edit/master/pico2019/one/image/one0.PNG)
+![cmd](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/one/image/one0.PNG)
 
 ## Tìm hiểu ứng dụng
 
