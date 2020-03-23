@@ -36,7 +36,7 @@ Chúng ta sẽ sử dụng tool Bytecode Viewer, cách dùng rất đơn giản:
 
 ![bytecode-viewer](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/one/image/one1.PNG)
 
-Tại cửa sổ ***File*** chúng ta có thể thấy được các file sau khi đã reverse thành công, tool cũng sắp xếp lại các file vào từng folder. Khi mở một file bất kỳ lên thì nội dung sẽ xuất hiện tại cửa sổ ***Work Space***.
+Tại cửa sổ ***Files*** chúng ta có thể thấy được các file sau khi đã reverse thành công, tool cũng sắp xếp lại các file vào từng folder. Khi mở một file bất kỳ lên thì nội dung sẽ xuất hiện tại cửa sổ ***Work Space***.
 
 Các file code chính sẽ nằm trong đường dẫn **com/hellocmu/picoctf**. Để ý thấy một file có cái tên "đáng ngờ" **FlagstaffHill.class**, click vào file đó để đọc code java.
 
