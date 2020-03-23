@@ -1,6 +1,7 @@
 # Android-CTF
 
-## Hệ điều hành: Windows hay Linux đều cài đặt được các tool và môi trường.
+## Hệ điều hành:
+Windows hay Linux đều cài đặt được các tool và môi trường.
 
 ## Danh sách các tool sử dụng:
 - [Java 8u241](https://java.com/en/download/manual.jsp): đa số các tool cho android viết bằng java, bản thân app android cũng viết bằng java. Cài môi trường java 8u241 để dùng được cả các phần mềm Cr@cK, bản java cao hơn không dùng được. 
