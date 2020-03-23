@@ -12,3 +12,7 @@ Từ hint thì mình đoán được bài này sẽ vẫn phải đi tìm passwo
 
 ## Tìm flag
 
+Reverse file apk bằng Bytecode Viewer và tiếp tục kiểm tra hàm getFlag() tại class FlagstaffHill. Vì đoạn code so sánh dài và khó theo dõi nên mình copy và mở trong vscode.
+
+![FlagstaffHill]()
+
