@@ -10,6 +10,7 @@ Danh sách các tool sử dụng:
 - [Apktool](https://ibotpeaches.github.io/Apktool/install/): decompile và build file apk.
 - [Dex2jar](https://github.com/pxb1988/dex2jar): chuyển file .dex sang file .class (chuyển file apk sang file jar - có thể đọc được code)
 - [JD-gui](http://java-decompiler.github.io/): đọc code file jar
+- [Bytecode Viewer](https://bytecodeviewer.com/): "hợp thể" của Dex2jar và JD-gui
 - Burp Suite: dùng bản community hoặc tìm các bản Cr@cK trên mạng. Chạy burp Cr@cK bằng java 8u241, bản community dùng java nào cũng được.
 - Text editor: sử dụng các text editor hỗ trợ đọc file .smali và .xml tốt (đề nghị dùng [VScode](https://code.visualstudio.com/download) + cài thêm các extension highlight code)
 
