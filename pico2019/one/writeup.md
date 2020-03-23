@@ -48,5 +48,26 @@ Work Space chia thành tận 2 phần: phía bên trái là sử dụng FernFlow
 
 Và đây là phần code quan trọng nhất:
 
+![MainActivity](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/one/image/one4.PNG)
+
 ![getFlag](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/one/image/one3.PNG)
 
+Khi không biết bắt đầu từ đâu thì mình nên đi từ **MainActivity** trước, đây là giao diện chính của app, tương tự main trong codeing vậy. Đọc code trong MainActivity chúng ta thấy được khi button được click, thì input chúng ta nhập sẽ được truyền vào FlagstaffHill.getFlag().
+
+Hàm getFlag() trong FlagstaffHill sẽ trả về kết quả khi so sánh input nhập vào với flag. Nhưng có làm thì mới có ăn, flag không được dọn ra ngay đấy mà chúng ta phải đi tìm tiếp. ``` var1.getString(2131427375) ``` sẽ trả về string có id = 2131427375, muốn biết nội dung string, chúng ta phải tìm dựa vào id đó.
+
+Để tìm được string có id đó thì bắt buộc chúng ta phải hoàn toàn reverse file apk ra mới được, Bytecode Viewer cũng có sẵn chức năng export các file đã reverse: File > Save As Zip
+
+Sau khi giải nén chúng ta kiểm tra trong **Decoded Resources/res/values/public.xml** trước. Trong đây sẽ lưu các ***resource name*** và ***resource id*** sử dụng trong code. Dễ thấy được các resource id đều đang ở dạng hex, vì thế chúng ta cần encodeHex(2131427375) = 7f0b002f.
+
+![public-xml](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/one/image/one5.PNG)
+
+Ứng với id 0x7f0b002f là string name ***password***. Khi có được string name rồi thì chúng ta có thể tìm được value của string đó tại **Decoded Resources/res/values/strings.xml**.
+
+![strings-xml](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/one/image/one6.PNG)
+
+Và password là **opossum** -> Nhập vào ứng dụng test thử...
+
+![flag](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/one/image/one7.PNG)
+
+**Flag: picoCTF{pining.for.the.fjords}**
