@@ -1,6 +1,6 @@
 # Picoctf 2019: Droids2
 
-Link tải file apk: [one.apk](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/two/two.apk)
+Link tải file apk: [two.apk](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/two/two.apk)
 
 ## Tìm hiểu ứng dụng
 
