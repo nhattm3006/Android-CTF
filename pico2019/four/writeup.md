@@ -82,7 +82,7 @@ Dựa vào các file smali của những bài Droids2 Droids3 trước đó và 
 
 Dù gọi hàm kiểu gì thì sau đó cũng phải return kết quả của hàm hết. Để đưa kết quả return của hàm được gọi vào nơi gọi nó chúng ta sẽ sử dụng **move-result-object**.
 
-Điều thứ 3 là các biến chỉ được thể hiện dưới dạng ký hiệu thôi, mà sửa nhầm tên biến thì kiểu gì cũng không build lại được, vì thế chúng ta phải quan sát và chọn những trong file FlagstaffHill.smali thỏa mãn yêu cầu nhận kết quả return từ hàm. Lúc này mình để ý đến lời gọi constructor init() ở ngay đầu file sử dụng {p0} để nhận kết quả return từ hàm init().
+Điều thứ 3 là các biến chỉ được thể hiện dưới dạng ký hiệu thôi, mà sửa nhầm tên biến thì kiểu gì cũng không build lại được, vì thế chúng ta phải quan sát và chọn những biến trong file FlagstaffHill.smali thỏa mãn yêu cầu nhận kết quả return từ hàm. Lúc này mình để ý đến lời gọi constructor init() ở ngay đầu file sử dụng {p0} để nhận kết quả return từ hàm init().
 
 ![init](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/four/image/four6.PNG)
 
@@ -90,7 +90,7 @@ Mình đoán 2 điều:
 - Biến p0 này có thể sử đụng để nhận dữ liệu return từ hàm được
 - Nó không thấy được sử dụng lại nên có ghi đè vào cũng chẳng chết ai.
 
-Từ những suy luận đó mình sửa file smali, may là chạy được. Lúc build xong mình thấy lúc đấy hơi ngu, lại đi sửa ở nhánh "call it", thế là tí nữa phải nhập đúng pass. Tất nhiên các bạn có thể thử sửa ở nhánh "NOPE" để nếu sửa đúng thì chẳng cần nhập gì vào, cứ bấm nút là ra flag.
+Từ những suy luận đó mình sửa file smali, may là chạy được. Khi build xong mình thấy lúc đấy hơi ngu, lại đi sửa ở nhánh "call it", thế là tí nữa phải nhập đúng pass. Tất nhiên các bạn có thể thử sửa ở nhánh "NOPE" để nếu sửa đúng thì chẳng cần nhập gì vào, cứ bấm nút là ra flag.
 
 Code mới sau khi sửa các bạn có thể xem tại đây: [FlagstaffHill.smali](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/four/FlagstaffHill.smali)
 
