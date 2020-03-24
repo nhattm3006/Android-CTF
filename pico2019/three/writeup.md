@@ -6,6 +6,6 @@ Link tải file apk: [three.apk](https://github.com/MinhNhatTran/Android-CTF/blo
 
 Các chức năng của ứng dụng không có gì thay đổi so với bài Droid0. Vẫn là 1 trường input, 2 phần text và 1 button.
 
-Khi click vào button sẽ hiện text "NOPE", và hint là "smali sounds like an ikea bookcase".
+Khi click vào button sẽ hiện text "don't wanna", và hint là "make this app your own".
 
 ## Tìm flag
