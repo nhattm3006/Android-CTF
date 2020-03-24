@@ -80,7 +80,7 @@ Lần lượt điền keystore và các thông tin, các bạn thích điền g�
 
 ![sign](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/three/image/three8.PNG)
 
-Như vậy là chúng ta đã sign thành công file apk patched. Giờ chỉ cần xóa ứng dụng cũ trong giả lập và cài ứng dụng mới đã patch vào và bấm nút để nhận flag.
+Như vậy là chúng ta đã sign thành công file apk patched. Giờ chỉ cần xóa ứng dụng cũ trong giả lập, cài ứng dụng mới đã patch vào và bấm nút để nhận flag.
 
 ![get-flag](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/three/image/three9.PNG)
 
