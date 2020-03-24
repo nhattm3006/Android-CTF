@@ -1,4 +1,4 @@
-# Picoctf 2019: Droids2
+# Picoctf 2019: Droids3
 
 Link tải file apk: [three.apk](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/three/three.apk)
 
