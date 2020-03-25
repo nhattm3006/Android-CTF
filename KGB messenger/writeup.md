@@ -10,3 +10,4 @@ Theo thông tin từ [repo gốc](https://github.com/tlamb96/kgb_messenger) thì
 
 ![rusian-devices]()
 
+Đoạn check Russian Devices nằm trong class MainActivity
