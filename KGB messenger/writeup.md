@@ -18,5 +18,5 @@ Việc kiểm tra khá là phức tạp khi chúng ta cần phải vượt qua 2
 
 Bây giờ thì decompile và xem code smali. Vì sử dụng 2 cấu trúc if - else nên trong code smali có 4 nhánh kết quả: cond_0 cond_1 cond_2 con_3. Đối chiếu với code java đã reverse, chúng ta có sơ đồ sau:
 
-![if-map](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/image/kgb12.PNG)
+![if-map](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/image/kgb12.png)
 
