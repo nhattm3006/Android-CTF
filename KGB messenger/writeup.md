@@ -8,3 +8,5 @@ Theo thông tin từ [repo gốc](https://github.com/tlamb96/kgb_messenger) thì
 
 Đây là chướng ngại đầu tiên chúng ta phải vượt qua nếu muốn tiếp cận các thông tin bí mật của tổ chức tình báo Nga. Ngay khi vừa bật app lên chúng ta đã nhận được không báo rằng chỉ thiết bị của Nga mới có thể sử dụng được app.
 
+![rusian-devices]()
+
