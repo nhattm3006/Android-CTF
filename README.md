@@ -1,5 +1,7 @@
 # Android-CTF
 
+![android-re](https://github.com/MinhNhatTran/Android-CTF/blob/master/android.jpg)
+
 ## Hệ điều hành:
 Windows hay Linux đều cài đặt được các tool và môi trường.
 
