@@ -22,9 +22,13 @@ Bây giờ thì decompile và xem code smali. Vì sử dụng 2 cấu trúc if -
 
 Xác định được target rồi thì câu chuyện lại đơn giản quá. Lệnh smali **if-nez** sẽ thực hiện so sánh và nhảy đến đoạn code xác định. Chúng ta chỉ cần sửa những chỗ lệnh if-nez nhảy đến **:cond_0** thành **:cond_1**, và sửa những chỗ nhảy đến **cond_2** thành **cond_3**.
 
-Sau khi patch lại apk, chúng ta đã có thể sử dụng app.
+Sau khi patch lại apk, chúng ta đã có thể sử dụng app. Các bạn có thể xem code mới tại [đây](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/code/MainActivity.smali).
 
 ![toLogin](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/image/kgb13.PNG)
 
-Ờ nhưng mà flag đâu ??? Theo như thiết kế thì tại bước bypass check devices này mình sẽ lấy được flag đầu tiên mà sao không thấy gì nhỉ ?
+Ờ nhưng mà flag đâu ??? Theo như thiết kế thì tại bước bypass check devices này mình sẽ lấy được flag đầu tiên mà sao không thấy gì nhỉ ? Hóa ra ở if condition 2 có một string với **id = 2131558400 (hex value: 7f0d0000)**. Tìm trong public.xml chúng ta biết được **resourse name = User**. Tìm resource name này trong strings.xml chúng ta thấy string value là một đoạn B64 = **RkxBR3s1N0VSTDFOR180UkNIM1J9Cg==**. Decode B64 và chúng ta sẽ được flag đầu tiên.
+
+**Flag 1: FLAG{57ERL1NG_4RCH3R}**
+
+## Login (dễ)
 
