@@ -113,7 +113,7 @@ Với 1 chút guessing nữa: ``` May I *PLEASE* have the password? ```
 
 Hàm a() hoạt động như sau:
 
-![funcA](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/image/kgb35.PNG)
+![funcA](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/image/kgb36.PNG)
 
 Với phép xor thì **(a ^ b) ^ b = a** nên việc đảo ngược thuật toán mã hóa không khó khăn gì.
 
