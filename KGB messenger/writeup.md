@@ -105,5 +105,8 @@ for i in range(len(r)):
 			break
 ```
 
-Kết quả: **_ay I *P_EASE* h_ve the _assword_**
+Kết quả:
 
+![brute-R](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/image/kgb35.PNG)
+
+Với 1 chút guessing nữa: ``` May I *PLEASE* have the password? ```
