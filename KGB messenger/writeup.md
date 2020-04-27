@@ -105,8 +105,34 @@ for i in range(len(r)):
 			break
 ```
 
-Kết quả:
-
-![brute-R](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/image/kgb35.PNG)
+Kết quả: ``` _ay I *P_EASE* h_ve the _assword_ ```
 
 Với 1 chút guessing nữa: ``` May I *PLEASE* have the password? ```
+
+Ồ, có vẻ như không hiệu quả. Mình đã thử thay đổi dấu câu ở cuối nhưng cũng không thấy flag đâu. Có thể do mình đã bỏ sót điều gì đó, vì thế mình kiểm tra kỹ hơn code của MessageActivity và nhận ra: hàm i() sẽ decrypt nội dung flag, nhưng hàm i() sẽ chỉ hoạt động khi 2 string ***q*** và ***s*** không rỗng. String ***s*** sẽ được set giá trị trong if 2 (***if (this.b(var2.toString()).equals(this.r))***), còn String ***q*** sẽ được set giá trị trong if 1 (***if (this.a(var2.toString()).equals(this.p))***) - mình đã bỏ qua phần này khi thấy if 2 sẽ in ra flag :v
+
+Hàm a() hoạt động như sau:
+
+![funcA](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/image/kgb35.PNG)
+
+Với phép xor thì **(a ^ b) ^ b = a** nên việc đảo ngược thuật toán mã hóa không khó khăn gì.
+
+```python
+p = "V@]EAASB\022WZF\022e,a$7(&am2(3.\003"
+p = list(str(p))
+ 
+for i in range(len(p) // 2):
+	p[i] = chr(ord(p[i]) ^ 0x32)
+	p[len(p) // 2 + 1 + i] = chr(ord(p[len(p) // 2 + 1 + i]) ^ 0x41)
+ 
+p.reverse()
+print("".join(p))
+```
+
+Kết quả: ``` Boris, give me the password ```
+
+Giờ thì mình sẽ nhập ``` Boris, give me the password ```, sau đó nhập tiếp ``` May I *PLEASE* have the password? ```. Nếu không được thì có thể phần dấu câu ở cuối bị sai, hoặc vẫn còn gì đó bị bỏ sót,... Nhưng thật may là mọi thứ hoạt động tốt, và chúng ta đã có flag cuối.
+
+![flag3](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/image/kgb30.PNG)
+
+**Flag 3: FLAG{p455w0rd_P134SE}**
