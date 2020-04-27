@@ -64,3 +64,46 @@ Sau đó mình search từ khóa "Sterling Archer password" thì tìm được p
 
 ## Social Engineering (khó)
 
+Sau khi đăng nhập được rồi thì chúng ta sẽ có 1 màn hình chat, tạm thời mình sẽ không gõ gì vào đây hết. Mình sẽ kiểm tra code trước, LAB này có 3 flag tương ứng với 3 activity, sau khi đã tìm đc 2 flag rồi thì cái cuối cùng cần kiểm tra là **MessengerActicity**.
+
+Phần code của activity này khá dài nên mình sẽ không screenshot hết lên đây. Đọc code lần 1 thì mình thấy vài điểm đáng chú ý sau:
+
+![2string](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/image/kgb31.PNG)
+
+![ab](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/image/kgb32.PNG)
+
+![onSendMessage](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/image/kgb33.PNG)
+
+Nhìn vào hàm **onSendMessage()** chúng ta thấy rằng nếu input nhập vào sau khi được xử lý bởi hàm **b()** trùng với **string r** thì flag sẽ xuất hiện. Vậy thì tìm hiểu xem hàm b() xử lý input như nào thôi. Trước khi phân tích kỹ hàm b() thì mình sẽ cố gắng viết lại thân hàm để dễ nhìn hơn, decompiler này chuyển sang while làm mọi thứ trông hơi rối, trong khi hoàn toàn có thể chuyển thành vòng lặp for tường minh hơn.
+
+![nicelyB](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/image/kgb34.PNG)
+
+Việc xử lý của hàm b() rất đơn giản thôi. Mỗi ký tự sẽ được dịch phải 0 ~ 7 bit tùy theo index của nó trong mảng, sau đó xor với nội dung ban đầu của chính nó. Cuối cùng đảo ngược thứ tự mảng và ghép lại thành 1 string.
+
+Để lấy lại nội dung ban đầu, chúng ta chỉ cần đảo ngược lại string r và brute force với toàn bộ ký tự printable. Tuy nhiên có 2 điều cần chú ý, đó là:
+- Trong code smali thì string r có cái đoạn "\u0000" là null character, nên phải tách string thành mảng các char để xử lý, nếu để nguyên string sẽ dễ gây nhầm lẫn.
+- Với các vị trí có index chia hết cho 8, chúng ta không thể tìm lại nội dung ban đầu do phép xor (1 ^ 1 = 0) với chính nó trả về char null.
+
+Code brute force:
+```python
+import string
+
+r = "\u0000dslp}oQ\u0000 dks$|M\u0000h +AYQg\u0000P*!M$gQ\u0000"
+r = list(str(r))
+r.reverse()
+
+for i in range(len(r)):
+	if i % 8 == 0:
+		print("_", end="")
+		continue
+	
+	#brute force
+	for char in string.printable:
+		x = chr((ord(char) >> (i % 8)) ^ ord(char))
+		if x == r[i]:
+			print(char, end="")
+			break
+```
+
+Kết quả: **_ay I *P_EASE* h_ve the _assword_**
+
