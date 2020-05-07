@@ -8,6 +8,19 @@ Link repo gốc: https://github.com/OWASP/owasp-mstg/tree/master/Crackmes
 
 Để đúng với mục đích luyện tập thì mình sẽ làm bài này bằng cả 2 kỹ thuật trong quá trình reversing: phân tích tĩnh (Static analysis) và phân tích động (Dinamic analysis)
 
+## Cấu trúc code decompiled
+
+Cấu trúc file code decompiled bằng bytecode viewer:
+|-sg
+   |-vantagepoint
+      |-a
+         |-a.class
+         |-b.class
+         |-c.class
+      |-uncrackable1
+         |-a.class
+         |-MainActivity.class
+
 ## Bypass root check
 
 Ngay khi mở ứng dụng lên thì sẽ có thông báo "Root detected" hiện lên. Ấn vào button "OK" thì chương trình sẽ tắt luôn.
