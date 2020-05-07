@@ -13,14 +13,14 @@ Link repo gốc: https://github.com/OWASP/owasp-mstg/tree/master/Crackmes
 Cấu trúc file code decompiled bằng bytecode viewer:
 
 ```
-sg.vantagepoint
-└───a  
-|   |   a.class
-|   |   b.class
-|   |   c.class
-└───uncrackable1
-    |   a.class
-    |   MainActivity.class
+sg.vantagepoint/
+├── a/
+│   ├── a.class
+│   ├── b.class
+│   ├── c.class
+└── uncrackable1/
+    ├── a.class
+    └── MainActivity.class
 ```
 
 ## Bypass root check
