@@ -14,6 +14,7 @@ Windows hay Linux đều cài đặt được các tool và môi trường.
 - [Dex2jar](https://github.com/pxb1988/dex2jar): chuyển file .dex sang file .class (chuyển file apk sang file jar - có thể đọc được code)
 - [JD-gui](http://java-decompiler.github.io/): đọc code file jar
 - [Bytecode Viewer](https://bytecodeviewer.com/): "hợp thể" của Dex2jar và JD-gui
+- [Frida](https://frida.re/): hook function, phục vụ cho phân tích động
 - Burp Suite: dùng bản community hoặc tìm các bản Cr@cK trên mạng. Chạy burp Cr@cK bằng java 8u241, bản community dùng java nào cũng được.
 - Text editor: sử dụng các text editor hỗ trợ đọc file .smali và .xml tốt (đề nghị dùng [VScode](https://code.visualstudio.com/download) + cài thêm các extension highlight code)
 
@@ -41,4 +42,4 @@ Windows hay Linux đều cài đặt được các tool và môi trường.
   - [Level 10]()
   - [Level 11]()
   - [Level 12]()
-  
+- [UnCrackable Level 1](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/writeup.md)
