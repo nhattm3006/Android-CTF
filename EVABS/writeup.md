@@ -58,9 +58,32 @@ Xem các bảng thấy flag là password của user Dr.l33t có role admin.
 
 ## Level 7 - Export
 
-![Exported](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv6-0.png)
+![Exported](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv7-0.png)
 
 Ở ngay dòng thứ 4 trong file AndroidManifest.xml đã có ngay thông tin về một Activity bị exported:
 ```xml
 <activity android:exported="true" android:name="com.revo.evabs.ExportedActivity"/>
 ```
+
+Sử dụng adb để trigger các exported activity.
+```
+adb shell am start -n com.revo.evabs/com.revo.evabs.ExportedActivity
+```
+
+![ExportedActivity](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv7-1.png)
+
+**Flag: EVABS{exp0rted_activities_ar3_harmful}**
+
+## Level 8 - Decode
+
+![Decode](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv8-0.png)
+
+Reverse sang code java bằng Bytecode viewer, sau đó mở file Decode.class - file code java cho level 8 thấy ngay 3 đoạn text hardcoded.
+
+![Decode](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv8-1.png)
+
+Decode hex 3 đoạn này được flag.
+
+**Flag: EVABS{nev3r_st0re_s3ns!tiv3_data_1n_7h3_s0urcec0de}**
+
+## Level 9 - Smali injection
