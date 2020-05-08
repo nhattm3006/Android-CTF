@@ -25,6 +25,8 @@ sg.vantagepoint/
     └── MainActivity.class
 ```
 
+***Tên file và tên hàm toàn a b c nên có thể gây nhầm lẫn, rối trong quá trình làm.***
+
 ## Bypass root check
 
 Ngay khi mở ứng dụng lên thì sẽ có thông báo "Root detected" hiện lên. Ấn vào button "OK" thì chương trình sẽ tắt luôn.
