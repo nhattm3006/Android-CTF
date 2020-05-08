@@ -123,7 +123,6 @@ script.on("message", onMessage)
 print("[*] Hooking", package)
 script.load()
 sys.stdin.read()
-
 ```
 
 Thành công, chúng ta đã bypass được phần check root. Thực ra không hẳn là bypass root check vì chúng ta chỉ ngăn được việc chưng trình exit khi ấn button OK thôi. Nhưng cái chúng ta cần thực sự là tiếp cận được các chức năng chính của app, còn việc bypass root hay không, không quan trọng, vì các chức năng còn lại của app không bị ảnh hưởng tùy theo thiết bị root hay không root.
@@ -141,7 +140,7 @@ Không cần để ý chi tiết code làm gì, chúng ta chỉ cần quan tâm 
 ```
 -> Decode B64 xâu "5UJiFctbmgbDoLXmpL12mkno8HT4Lv8dlat8FxR2GOc=" và convert sang mảng kiểu byte (1)
    
--> Gọi hàm sg.vantagepoint.uncrackable1.a.b() để xử lý gì đó với xâu "8d127684cbc37c17616d806cf50473cc" và lưu kết quả dưới dạng mảng kiểu byte (2)
+-> Gọi hàm sg.vantagepoint.uncrackable1.a.b() để convert hex string "8d127684cbc37c17616d806cf50473cc" thành mảng kiểu byte (2)
 
 -> Gọi hàm sg.vantagepoint.a.a.a() với 2 tham số lần lượt là mảng kiểu byte từ bước 2 và bước 1.
 
@@ -158,4 +157,58 @@ Chúng ta sẽ thay đổi flow này, mục đích là lấy được kết qu�
 
 #### Dynamic: hook bằng Frida
 
-Cách 1: Sau khi đã chạy 1 lần chức năng check input, sử dụng Java.choose() để tìm trên heap 
+Khi hook bằng frida mình nghĩ ra 2 hướng hook:
+
+**Cách 1:** Sau khi đã chạy 1 lần chức năng check input, sử dụng Java.choose() để tìm trên heap và sử dụng lại chức năng đó với đúng input. Như vậy chúng ta sẽ lấy được kết quả của hàm - flag cần tìm.
+
+Cách này chỉ mới dừng lại ở ý tưởng của mình thôi, chứ mình cũng chưa làm được. Vì việc truyền tham số là mảng kiểu byte vào mình chưa làm được. Nếu muốn chuyển hex string sang mảng byte bằng hàm sg.vantagepoint.uncrackable1.a.b() luôn thì lại rắc rối nữa, vì sg.vantagepoint.uncrackable1.a.b() và sg.vantagepoint.a.a.a() nằm ở 2 class khác nhau.
+
+Vì thế mình cần tìm cách khác để hook
+
+**Cách 2:** Sử dụng Java.use() để hook hàm sg.vantagepoint.a.a.a() và sửa nội dung hàm ngay trước khi hàm đó được chạy. Ý tưởng là mình sẽ hook hàm sg.vantagepoint.a.a.a(), sửa nội dung cho hàm này gọi instance của chính nó trước khi bị hook. Hơi khó hiểu nhỉ, cụ thể như trong hình sau:
+
+![mo-hinh](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/image/uncrackable1-22.PNG)
+
+Theo ý tưởng đó, chúng ta có script:
+
+```python
+import frida
+import sys
+import time
+
+def onMessage(message, data):
+    print(message)
+
+package = "owasp.mstg.uncrackable1"
+
+jscode = """
+Java.perform(function () {
+    send("[-] Starting hooks sg.vantagepoint.a.a");
+    var aes_decrypt = Java.use("sg.vantagepoint.a.a");
+    aes_decrypt.a.implementation = function(var_0, var_1) {
+        var ret = this.a.call(this, var_0, var_1);
+        var flag = "";
+        
+        for (var i=0; i < ret.length; i++){
+            flag += String.fromCharCode(ret[i]);
+        }
+        send("[*] Decrypted flag: " + flag);
+
+        return ret;
+    };
+
+});
+"""
+
+time.sleep(1)
+process = frida.get_usb_device().attach(package)
+script = process.create_script(jscode)
+script.on("message", onMessage)
+print("[*] Hooking", package)
+script.load()
+sys.stdin.read()
+```
+
+Kết quả hook:
+
+![flag](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/image/uncrackable1-23.PNG)
