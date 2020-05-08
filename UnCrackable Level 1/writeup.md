@@ -37,13 +37,13 @@ Code phần check root:
 
 ![root-code](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/image/uncrackable1-12.PNG)
 
-Việc kiểm tra root được thực hiện bằng 3 cách, class c trong package sg.vantagepoint.a sẽ làm việc này
+Việc kiểm tra root được thực hiện bằng 3 cách, class c trong package **sg.vantagepoint.a** sẽ làm việc này
 
 ![c.class](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/image/uncrackable1-13.PNG)
 
 #### Static: patch apk
 
-#### Dynamic: hook bằng Fride
+#### Dynamic: hook bằng Frida
 
 Ý tưởng đầu tiên là mình sẽ hook và sửa nội dung 3 hàm **c.a()**, **c.b()** và **c.c()** return false hết. Như vậy sẽ vượt qua được bước check root của app:
 
@@ -128,3 +128,34 @@ sys.stdin.read()
 
 Thành công, chúng ta đã bypass được phần check root. Thực ra không hẳn là bypass root check vì chúng ta chỉ ngăn được việc chưng trình exit khi ấn button OK thôi. Nhưng cái chúng ta cần thực sự là tiếp cận được các chức năng chính của app, còn việc bypass root hay không, không quan trọng, vì các chức năng còn lại của app không bị ảnh hưởng tùy theo thiết bị root hay không root.
 
+## Get flag
+
+Tại MainActivity của app có chức năng nhập vào input và button kiểm tra. Nếu input đúng (nhập vào flag) thì sẽ có thông báo "Success", ngược lại thì "Nope". Chức năng này được xử lý trong hàm MainActivity.verify()
+
+Việc kiểm tra input được xử lý bởi class **sg.vantagepoint.uncrackable1.a**:
+
+![inputCheck](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/image/uncrackable1-21.PNG)
+
+Không cần để ý chi tiết code làm gì, chúng ta chỉ cần quan tâm xem flow của quá trình check input như nào:
+
+```
+-> Decode B64 xâu "5UJiFctbmgbDoLXmpL12mkno8HT4Lv8dlat8FxR2GOc=" và convert sang mảng kiểu byte (1)
+   
+-> Gọi hàm sg.vantagepoint.uncrackable1.a.b() để xử lý gì đó với xâu "8d127684cbc37c17616d806cf50473cc" và lưu kết quả dưới dạng mảng kiểu byte (2)
+
+-> Gọi hàm sg.vantagepoint.a.a.a() với 2 tham số lần lượt là mảng kiểu byte từ bước 2 và bước 1.
+
+-> Chuyển kết quả của hàm sg.vantagepoint.a.a.a() thành String (4)
+
+-> So sánh input nhập vào với string tại bước 4
+
+-> Nếu input giống với string tại bước 4 thì đúng là flag và hiện thông báo Success.
+```
+
+Chúng ta sẽ thay đổi flow này, mục đích là lấy được kết quả của hàm sg.vantagepoint.a.a.a() với đúng tham số là 2 mảng byte.
+
+#### Static: patch apk
+
+#### Dynamic: hook bằng Frida
+
+Cách 1: Sau khi đã chạy 1 lần chức năng check input, sử dụng Java.choose() để tìm trên heap 
