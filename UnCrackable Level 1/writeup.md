@@ -169,8 +169,6 @@ Không cần để ý chi tiết code làm gì, chúng ta chỉ cần quan tâm 
 
 Chúng ta sẽ thay đổi flow này, mục đích là lấy được kết quả của hàm sg.vantagepoint.a.a.a() với đúng tham số là 2 mảng byte.
 
-#### Static: patch apk
-
 #### Dynamic: hook bằng Frida
 
 Khi hook bằng frida mình nghĩ ra 2 hướng hook:
@@ -228,3 +226,57 @@ sys.stdin.read()
 Kết quả hook:
 
 ![flag](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/image/uncrackable1-23.PNG)
+
+#### Static: patch apk
+
+Ở phần get flag này mình trình bày phương pháp patch code smali sau, vì đối với mình cách này khó hơn, mãi đến lúc viết ra bài hướng dẫn này mình mới thành công :<
+
+Theo phương pháp này, mình không thay đổi flow của phần decrypt ra flag mà chỉ chèn thêm vào quá trình đó 1 bước. Cách làm là thêm 1 bước để ứng dụng hiển thị kết quả sau khi decrypt, trước khi hàm sg.vantagepoint.a.a.a() return kết quả so sánh input với flag.
+
+Đây là đoạn code smali return kết quả so sánh 2 chuỗi:
+
+```smali
+new-instance v1, Ljava/lang/String;
+
+invoke-direct {v1, v0}, Ljava/lang/String;-><init>([B)V
+
+# Chúng ta sẽ viết thêm code vào đây
+
+invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z    # So sánh 2 string
+
+move-result p0
+
+return p0
+```
+
+Để chương trình in ra flag mình sẽ thêm 1 lệnh in ra log thôi. Khi flag đã được in ra log rồi thì chúng ta có thể dễ dàng xem được bằng cách sử dụng ``` adb logcat ```.
+
+Cấu trúc lệnh print string ra log bằng code smali như sau:
+
+```smali
+invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+```
+
+Trong đó 2 biến **v0** và **v1** lần lượt là **log-tag** và **log-message**. Hai biến này có thể thay thế bằng 2 biến khác được chương trình khai báo sẵn rồi. Mình tránh khai báo thêm biến mới trong code smali vì chưa hiểu lắm về Dalvik opcode và hệ thống Android.
+
+Trong đoạn code smali ở trên thì biến v1 chính là flag mà mình đang muốn lấy. Mình cũng không biết log-tag để như nào nên cứ cho in ra flag/flag hết:
+
+```smali
+new-instance v1, Ljava/lang/String;
+
+invoke-direct {v1, v0}, Ljava/lang/String;-><init>([B)V
+
+invoke-static {v1, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I    # patch here
+
+invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+move-result p0
+
+return p0
+```
+
+Các bước build, sign apk và install quá cơ bản rồi, mình sẽ không viết lại nữa. Sau khi install và nhập bừa input để kiểm tra thì flag đã được in trong log:
+
+![flag](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/image/uncrackable1-24.PNG)
+
+Code smali đã sửa: [a.smali](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/code/a.smali)
