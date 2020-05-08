@@ -12,7 +12,7 @@ Sử dung **adb logcat** để xem log của ứng dụng
 
 ## Level 2 - File Access
 
-![assets](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv2-0.PNG)
+![assets](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv2-0.png)
 
 Theo như gợi ý thì chúng ta cần tìm flag trong **assets directory**. Chỉ cần đổi đuôi file .apk -> .zip và giải nén. Sau đó vào thư mục assets và ta thấy 1 file secret chứa flag
 
@@ -20,7 +20,7 @@ Theo như gợi ý thì chúng ta cần tìm flag trong **assets directory**. Ch
 
 ## Level 3 - Strings
 
-![strings](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv3-0.PNG)
+![strings](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv3-0.png)
 
 Quá quen thuộc, decompile bằng apktool và strings.xml thẳng tiến.
 
@@ -28,7 +28,7 @@ Quá quen thuộc, decompile bằng apktool và strings.xml thẳng tiến.
 
 ## Level 4 - Resource
 
-![Resource](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv4-0.PNG)
+![Resource](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv4-0.png)
 
 Flag giấu trong 1 file nằm tại folder res. Chạy 1 command là biết được flag đặt trong res/raw/link.txt: ``` grep -r "EVABS{" * ```
 
@@ -36,7 +36,7 @@ Flag giấu trong 1 file nằm tại folder res. Chạy 1 command là biết đ�
 
 ## Level 5 - Shares and Preferences
 
-![Resource](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv5-0.PNG)
+![Resource](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv5-0.png)
 
 Kiểm tra SharedPreferences: SharedPreferences là một API lưu trữ dữ liệu vĩnh viễn trong các file XML. Dữ liệu được lưu trữ bởi SharedPreferences object có cấu trúc dạng key - value. SharedPreferences object có thể được khai báo cho tất cả ứng dụng sử dụng, hoặc khai báo private. Dữ liệu được lưu trong các file XML tại /data/data/<package-name>/shared_prefs/*.xml
 
@@ -46,7 +46,7 @@ Sử dụng ``` adb shell ``` để truy cập vào hệ thống máy android. `
 
 ## Level 6 - DB leak
 
-![SQLite](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv6-0.PNG)
+![SQLite](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv6-0.png)
 
 Chạy ``` adb shell "ls /data/data/com.revo.evabs/databases" ``` để kiểm tra xem có những db nào. Ở đây chỉ có 1 db là MAINFRAME_ACCESS.
 
