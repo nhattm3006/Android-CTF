@@ -45,6 +45,20 @@ Việc kiểm tra root được thực hiện bằng 3 cách, class c trong pack
 
 #### Static: patch apk
 
+Decompile bằng apktool: ``` java -jar apktool_2.4.1.jar d UnCrackable-Level1.apk ```
+
+Sửa code 3 hàm **c.a()**, **c.b()** và **c.c()** trong smali/sg/vantagepoint/a. Cách sửa rất đơn giản, chỉ cần ***đảm bảo 3 hàm này luôn return false*** là được: sửa các đoạn **const/4** trước lệnh **return** thành khai báo 0x0 hết. VD: ``` const/4 v0, 0x1 ``` -> ``` const/4 v0, 0x0 ```
+
+Build lại bằng apktool: ``` java -jar apktool_2.4.1.jar b UnCrackable-Level1 ```
+
+Tạo key: ``` keytool -genkeypair -v -keystore key.keystore -alias publishingdoc -keyalg RSA -keysize 2048 -validity 10000 ```
+
+Sign new apk: ``` jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ./key.keystore UnCrackable-Level1.apk publishingdoc ```
+
+Cài đặt lại và không còn thông báo nào hiện l
+
+Code smali đã sửa: [c.smali](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/code/c.smali)
+
 #### Dynamic: hook bằng Frida
 
 Ý tưởng đầu tiên là mình sẽ hook và sửa nội dung 3 hàm **c.a()**, **c.b()** và **c.c()** return false hết. Như vậy sẽ vượt qua được bước check root của app:
