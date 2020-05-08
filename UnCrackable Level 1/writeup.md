@@ -6,7 +6,7 @@ UnCrackable Level 1 là bài đầu tiên về reverse android apk trong series 
 
 Link repo gốc: https://github.com/OWASP/owasp-mstg/tree/master/Crackmes
 
-Để đúng với mục đích luyện tập thì mình sẽ làm bài này bằng cả 2 kỹ thuật trong quá trình reversing: phân tích tĩnh (Static analysis) và phân tích động (Dinamic analysis)
+Để đúng với mục đích luyện tập thì mình sẽ làm bài này bằng cả 2 kỹ thuật trong quá trình reversing: phân tích tĩnh (Static analysis) và phân tích động (Dynamic analysis)
 
 ## Cấu trúc code decompiled
 
@@ -30,3 +30,12 @@ Ngay khi mở ứng dụng lên thì sẽ có thông báo "Root detected" hiện
 ![root-detect](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/image/uncrackable1-11.PNG)
 
 Vậy thì bước đầu tiên là phải bypass được phần check root. Nếu chỉ để xem các chức năng của app như nào thì có thể cài apk vào 1 thiết bị không bị root là được. Tất nhiên là chúng ta không làm thế, nếu bị detect thì mình bypass thẳng luôn.
+
+Code phần check root:
+
+![root-code](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/image/uncrackable1-12.PNG)
+
+Việc kiểm tra root được thực hiện bằng 3 cách, class c trong package sg.vantagepoint.a sẽ làm việc này
+
+![c.class](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/image/uncrackable1-13.PNG)
+
