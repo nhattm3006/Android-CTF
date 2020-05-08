@@ -58,3 +58,9 @@ Xem các bảng thấy flag là password của user Dr.l33t có role admin.
 
 ## Level 7 - Export
 
+![Exported](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv6-0.png)
+
+Ở ngay dòng thứ 4 trong file AndroidManifest.xml đã có ngay thông tin về một Activity bị exported:
+```xml
+<activity android:exported="true" android:name="com.revo.evabs.ExportedActivity"/>
+```
