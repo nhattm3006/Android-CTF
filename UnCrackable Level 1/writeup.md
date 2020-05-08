@@ -6,7 +6,7 @@ UnCrackable Level 1 là bài đầu tiên về reverse android apk trong series 
 
 Link repo gốc: https://github.com/OWASP/owasp-mstg/tree/master/Crackmes
 
-Để đúng với mục đích luyện tập thì mình sẽ làm bài này bằng cả 2 kỹ thuật trong quá trình reversing: phân tích tĩnh (Static analysis) và phân tích động (Dynamic analysis)
+Để đúng với mục đích luyện tập thì mình sẽ làm bài này bằng phương pháp: Static và Dynamic.
 
 ## Cấu trúc code decompiled
 
@@ -55,7 +55,7 @@ Tạo key: ``` keytool -genkeypair -v -keystore key.keystore -alias publishingdo
 
 Sign new apk: ``` jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ./key.keystore UnCrackable-Level1.apk publishingdoc ```
 
-Cài đặt lại và không còn thông báo nào hiện l
+Cài đặt lại và không còn thông báo nào hiện lên.
 
 Code smali đã sửa: [c.smali](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/code/c.smali)
 
@@ -141,7 +141,11 @@ script.load()
 sys.stdin.read()
 ```
 
-Thành công, chúng ta đã bypass được phần check root. Thực ra không hẳn là bypass root check vì chúng ta chỉ ngăn được việc chưng trình exit khi ấn button OK thôi. Nhưng cái chúng ta cần thực sự là tiếp cận được các chức năng chính của app, còn việc bypass root hay không, không quan trọng, vì các chức năng còn lại của app không bị ảnh hưởng tùy theo thiết bị root hay không root.
+![no-root](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/image/uncrackable1-15.PNG)
+
+Thành công! Chúng ta đã bypass được phần check root. 
+
+Thực ra không hẳn là bypass root check vì chúng ta chỉ ngăn được việc chương trình exit khi ấn button OK thôi. Nhưng cái chúng ta cần thực sự là tiếp cận được các chức năng chính của app, còn việc bypass root hay không, không quan trọng, vì các chức năng còn lại của app không bị ảnh hưởng tùy theo thiết bị root hay không root.
 
 ## Get flag
 
