@@ -38,7 +38,7 @@ Windows hay Linux đều cài đặt được các tool và môi trường.
   - [Level 9](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-9---smali-injection)
   - [Level 10](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-10---intercept)
   - [Level 11](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-11---custom-perm)
-  - [Level 12](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-12---instrument)
+  - [Level 12](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-12---instrument) [x]
 - KGB messenger:
   - [Alert (trung bình)](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/writeup.md#alert-trung-b%C3%ACnh)
   - [Login (dễ)](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/writeup.md#login-d%E1%BB%85)
