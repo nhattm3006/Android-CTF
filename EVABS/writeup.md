@@ -2,6 +2,10 @@
 
 Link tải file apk: [EVABSv4.apk](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/EVABSv4.apk)
 
+Tại thời điểm mình làm thì LAB này khá mới. Đây là 1 LAB giới thiệu qua về các điểm cần chú ý để tránh gây mất an toàn thông tin trên ứng dụng Android. Khi đã tìm được công cụ, hướng làm rồi thì LAB này không hề khó, chủ yếu để hướng cho người làm biết phải tìm hiểu vấn đề gì thôi.
+
+Các bản mới và thông tin thêm xem tại [repo gốc](https://github.com/abhi-r3v0/EVABS).
+
 ## Level 1 - Debug Me
 
 Sử dung **adb logcat** để xem log của ứng dụng
