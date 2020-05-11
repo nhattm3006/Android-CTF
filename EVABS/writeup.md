@@ -114,7 +114,7 @@ Sau khi config để intercept được request rồi thì chỉ cần Send to r
 
 ## Level 11 - Custom PERM
 
-![PERM](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv11-1.png)
+![useFrida](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv11-1.png)
 
 **Flag: EVABS{always_ver1fy_packag3sa}**
 
