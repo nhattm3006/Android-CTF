@@ -20,27 +20,27 @@ Windows hay Linux đều cài đặt được các tool và môi trường.
 - Text editor: sử dụng các text editor hỗ trợ đọc file .smali và .xml tốt (đề nghị dùng [VScode](https://code.visualstudio.com/download) + cài thêm các extension highlight code).
 
 ## Writeup cho các bài Android CTF:
-- Picoctf 2019:
-  - [Droids0](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/zero/writeup.md)
-  - [Droids1](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/one/writeup.md)
-  - [Droids2](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/two/writeup.md)
-  - [Droids3](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/three/writeup.md)
-  - [Droids4](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/four/writeup.md)
-- EVBASv4:
-  - [Level 1](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-1---debug-me)
-  - [Level 2](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-2---file-access)
-  - [Level 3](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-3---strings)
-  - [Level 4](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-4---resource)
-  - [Level 5](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-5---shares-and-preferences)
-  - [Level 6](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-6---db-leak)
-  - [Level 7](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-7---export)
-  - [Level 8](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-8---decode)
-  - [Level 9](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-9---smali-injection)
-  - [Level 10](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-10---intercept)
-  - [Level 11](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-11---custom-perm)
-  - [Level 12](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-12---instrument) [x]
-- KGB messenger:
-  - [Alert (trung bình)](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/writeup.md#alert-trung-b%C3%ACnh)
-  - [Login (dễ)](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/writeup.md#login-d%E1%BB%85)
-  - [Social Engineering (khó)](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/writeup.md#social-engineering-kh%C3%B3)
-- [UnCrackable Level 1](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/writeup.md)
+- [x] Picoctf 2019:
+  - [x] [Droids0](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/zero/writeup.md)
+  - [x] [Droids1](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/one/writeup.md)
+  - [x] [Droids2](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/two/writeup.md)
+  - [x] [Droids3](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/three/writeup.md)
+  - [x] [Droids4](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/four/writeup.md)
+- [ ] EVBASv4:
+  - [x] [Level 1](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-1---debug-me)
+  - [x] [Level 2](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-2---file-access)
+  - [x] [Level 3](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-3---strings)
+  - [x] [Level 4](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-4---resource)
+  - [x] [Level 5](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-5---shares-and-preferences)
+  - [x] [Level 6](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-6---db-leak)
+  - [x] [Level 7](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-7---export)
+  - [x] [Level 8](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-8---decode)
+  - [x] [Level 9](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-9---smali-injection)
+  - [x] [Level 10](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-10---intercept)
+  - [ ] [Level 11](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-11---custom-perm)
+  - [ ] [Level 12](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-12---instrument)
+- [x] KGB messenger:
+  - [x] [Alert (trung bình)](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/writeup.md#alert-trung-b%C3%ACnh)
+  - [x] [Login (dễ)](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/writeup.md#login-d%E1%BB%85)
+  - [x] [Social Engineering (khó)](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/writeup.md#social-engineering-kh%C3%B3)
+- [x] [UnCrackable Level 1](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/writeup.md)
