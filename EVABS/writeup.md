@@ -104,5 +104,20 @@ Vậy là chỉ cần sửa biến **SIGNAL** trong class SmaliInject từ "LAB_
 
 ![Intercept](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv10-0.png)
 
-Theo như hint thì cần phải intercept request bằng burpsuite.
+Theo như hint thì cần phải intercept request bằng burpsuite. Để intercept được request trên các phiên bản Android từ Android N trở lên thì phải add root CA có thời hạn ngắn. Nếu muốn đơn giản hơn thì chỉ cần cài EVABSv4 lên thiết bị có phiên bản thấp hơn Android N là sử dụng được burp CA.
 
+Sau khi config để intercept được request rồi thì chỉ cần Send to repeater và gửi request lên là được. Trong respond có chứa flag.
+
+![Intercept](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv10-1.png)
+
+**Flag: EVABS{Always_p!n_SSL_C3rtificate}**
+
+## Level 11 - Custom PERM
+
+![PERM](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv11-1.png)
+
+**Flag: EVABS{always_ver1fy_packag3sa}**
+
+Nhưng mà check thì lại báo sai ???
+
+## Level 12 - Instrument
