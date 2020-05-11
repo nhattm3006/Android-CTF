@@ -88,3 +88,21 @@ Decode hex 3 đoạn này được flag.
 
 ## Level 9 - Smali injection
 
+![Smali](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv9-0.png)
+
+Xem source code bằng bytecode viewer:
+- SmaliInject.class:
+![Smali](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv9-1.png)
+- SmaliInject$2.class:
+![Smali](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv9-2.png)
+
+Vậy là chỉ cần sửa biến **SIGNAL** trong class SmaliInject từ "LAB_OFF" -> "LAB_ON" rồi build và sign lại app là được. Sau khi cài đặt ấn button TURN ON là sẽ nhận được flag
+
+**Flag: EVABS{smali_inj_is_l3thals}**
+
+## Level 10 - Intercept
+
+![Intercept](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv10-0.png)
+
+Theo như hint thì cần phải intercept request bằng burpsuite.
+
