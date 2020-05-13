@@ -26,7 +26,7 @@ Windows hay Linux đều cài đặt được các tool và môi trường.
   - [x] [Droids2](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/two/writeup.md)
   - [x] [Droids3](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/three/writeup.md)
   - [x] [Droids4](https://github.com/MinhNhatTran/Android-CTF/blob/master/pico2019/four/writeup.md)
-- [ ] EVBASv4:
+- [x] EVBASv4:
   - [x] [Level 1](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-1---debug-me)
   - [x] [Level 2](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-2---file-access)
   - [x] [Level 3](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-3---strings)
@@ -37,8 +37,8 @@ Windows hay Linux đều cài đặt được các tool và môi trường.
   - [x] [Level 8](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-8---decode)
   - [x] [Level 9](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-9---smali-injection)
   - [x] [Level 10](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-10---intercept)
-  - [ ] [Level 11](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-11---custom-perm)
-  - [ ] [Level 12](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-12---instrument)
+  - [x] [Level 11](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-11---custom-perm)
+  - [x] [Level 12](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/writeup.md#level-12---instrument)
 - [x] KGB messenger:
   - [x] [Alert (trung bình)](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/writeup.md#alert-trung-b%C3%ACnh)
   - [x] [Login (dễ)](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/writeup.md#login-d%E1%BB%85)
