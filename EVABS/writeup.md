@@ -118,10 +118,56 @@ Sau khi config để intercept được request rồi thì chỉ cần Send to r
 
 ## Level 11 - Custom PERM
 
+![PERM](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv11-0.png)
+
+Vẫn là phải tìm đúng input mới được, xem source trên bytecode viewer dễ dàng thấy ngay input đúng là **cust0m_p3rm**.
+
+![PERM](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv11-2.png)
+
+Sau khi nhập đúng input thì flag sẽ được truyền vào intent **com.revo.evabs.action.SENSOR_KEY** bằng hàm putExtra().
+
+Ban đầu mình tìm cách để tác động vào intent nhằm lấy được data truyền vào intend đó nhưng tốn khá nhiều thời gian mà không được. Vì thế mình chuyển sang dùng Frida luôn. Ý tưởng là hook và sửa hàm putExtra() cho nó in ra flag.
+
+Note: vì hàm putExtra() có nhiều bản tùy theo kiểu tham số, nên mình phải sử dụng overload() để chỉ ra đúng hàm putExtra() nhận tham số là 2 string.
+
+```python
+import frida
+import sys
+
+def onMessage(message, data):
+    print(message)
+
+package = "com.revo.evabs"
+
+jscode = """
+Java.perform(function () {
+    send("[-] Starting hooks android.content.Intent.putExtra");
+    var intent = Java.use("android.content.Intent");
+    intent.putExtra.overload("java.lang.String", "java.lang.String").implementation = function(var_1, var_2) {
+        send("[+] Flag: " + var_2);
+    };
+
+});
+"""
+
+process = frida.get_usb_device().attach(package)
+script = process.create_script(jscode)
+script.on("message", onMessage)
+print("[*] Hooking", package)
+script.load()
+sys.stdin.read()
+```
+
 ![useFrida](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv11-1.png)
 
 **Flag: EVABS{always_ver1fy_packag3sa}**
 
 Nhưng mà check thì lại báo sai ???
+
+Mình khá chắc cách làm này là đúng, vì thế mình đã gửi mail hỏi tác giả của EVABS và nhận được phản hồi rằng cách mình làm là chính xác. Do code random nên bị thừa ký tự 'a' ở cuối, flag đúng là **EVABS{always_ver1fy_packag3s}**
+
+Submit vẫn bị báo sai :v Nhưng thôi không quan trọng, làm đúng là được rồi.
+
+![useFrida](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv11-3.png)
 
 ## Level 12 - Instrument
