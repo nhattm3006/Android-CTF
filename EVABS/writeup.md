@@ -172,3 +172,46 @@ Submit vẫn bị báo sai :v Nhưng thôi không quan trọng, làm đúng là 
 
 ## Level 12 - Instrument
 
+![Instrument](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv12-0.png)
+
+Khi click "MAP AREA" thì sẽ xuất hiện 2 tọa độ x và y cùng với 1 giá trị bằng x * y. Bài này cũng cần sử dụng Frida để làm, theo cảm nhận của mình thì còn dễ hơn level 11. Source code của level 12 trong file **frida1.class**
+
+![Instrument](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv12-1.png)
+
+Logic so sánh của bài này rất đơn giản, nếu **(x = a * b) > var5 + 150** với var5 là 1 số int random trong khoảng 0 -> 70. Vì a b cố định khiến x luôn là 50, như thế thì var5 random kiểu gì thì x cũng không thỏa mãn được. Vậy thì chỉ cần hook và sửa lại hàm nextInt(int) cho return -150 là được, nhanh gọn chẳng phải nghĩ hay tính toán gì.
+
+```python
+import frida
+import sys
+
+def onMessage(message, data):
+    print(message)
+
+package = "com.revo.evabs"
+
+jscode = """
+Java.perform(function () {
+    send("[-] Starting hooks java.util.Random.nextInt");
+    var random = Java.use("java.util.Random");
+    random.nextInt.overload("int").implementation = function(var_1) {
+        return -150;
+    };
+
+});
+"""
+
+process = frida.get_usb_device().attach(package)
+script = process.create_script(jscode)
+script.on("message", onMessage)
+print("[*] Hooking", package)
+script.load()
+sys.stdin.read()
+```
+
+Flag sẽ được in ra log.
+
+![Instrument](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv12-2.png)
+
+Kiểm tra flag vẫn sai, chắc vẫn lỗi như level 11.
+
+**Flag: EVABS{a_dynam1c_h00k}**
