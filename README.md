@@ -44,3 +44,7 @@ Windows hay Linux đều cài đặt được các tool và môi trường.
   - [x] [Login (dễ)](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/writeup.md#login-d%E1%BB%85)
   - [x] [Social Engineering (khó)](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/writeup.md#social-engineering-kh%C3%B3)
 - [x] [UnCrackable Level 1](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/writeup.md)
+- [ ] CyberTruck2019:
+  - [ ] [Challenge1 - DES key: Completely Keyless. Completely safe]()
+  - [ ] [Challenge2 - AES key: Your Cell Mobile Is Your Key]()
+  - [ ] [Challenge3 - Mr Truck: Unlock me Baby!]()
