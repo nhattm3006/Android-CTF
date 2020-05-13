@@ -7,7 +7,7 @@ Một bài LAB nghe nói là full frida. Bài LAB tạo bởi nowsecure - 1 team
 Flag không dễ nhận biết nên mình đã code 1 script python để kiểm tra flag dành cho ai muốn có chương trình kiểm tra flag thay vì đi xem đáp án. Download bằng lệnh:
 
 ```
-https://raw.githubusercontent.com/MinhNhatTran/Android-CTF/master/CyberTruck2019/checkFlagCyberTruck.py
+wget https://raw.githubusercontent.com/MinhNhatTran/Android-CTF/master/CyberTruck2019/checkFlagCyberTruck.py
 ```
 
 Các thông tin thêm về tài liệu, gợi ý, write up và flag đều có thể xem ở [repo gốc](https://github.com/nowsecure/cybertruckchallenge19)
