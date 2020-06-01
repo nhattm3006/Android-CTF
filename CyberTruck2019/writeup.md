@@ -27,7 +27,7 @@ Các thông tin thêm về tài liệu, gợi ý, write up và flag đều có t
 ## Timeline
 
 | Thứ tự | Flag     |
-| ------ |:-------------:|
+|:------:|----------|
 | 1      | Static 2 |
 | 2      | centered      |
 | 3      | are neat      |
