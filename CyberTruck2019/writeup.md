@@ -29,9 +29,9 @@ Các thông tin thêm về tài liệu, gợi ý, write up và flag đều có t
 | Thứ tự | Flag     |
 |:------:|----------|
 | 1      | Static 2 |
-| 2      | centered      |
-| 3      | are neat      |
-| 4      | are neat      |
-| 5      | are neat      |
-| 6      | are neat      |
+| 2      | NULL     |
+| 3      | NULL     |
+| 4      | NULL     |
+| 5      | NULL     |
+| 6      | NULL     |
 
