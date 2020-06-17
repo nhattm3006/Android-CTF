@@ -26,12 +26,27 @@ Các thông tin thêm về tài liệu, gợi ý, write up và flag đều có t
 
 ## Timeline
 
-| Thứ tự | Flag     |
-|:------:|----------|
-| 1      | Static 2 |
-| 2      | NULL     |
-| 3      | NULL     |
-| 4      | NULL     |
-| 5      | NULL     |
-| 6      | NULL     |
+| Thứ tự | Flag      |
+|:------:|-----------|
+| 1      | Static 2  |
+| 2      | Static 1  |
+| 3      | Dynamic 1 |
+| 4      | NULL      |
+| 5      | NULL      |
+| 6      | NULL      |
 
+## Get flag
+
+### Static flag 2
+
+Decompile file apk bằng apktool và thực hiện tìm kiếm trong các folder, file.
+
+Static flag 2 nằm tại /assets/ch2.key
+
+### Static flag 1
+
+Reverse file bằng Bytecode Viewer, tìm thấy static flag 2 Challenge1.generateDynamicKey().
+
+### Dynamic flag 1
+
+Tiếp tục tập trung vào class Ch
