@@ -32,7 +32,7 @@ Các thông tin thêm về tài liệu, gợi ý, write up và flag đều có t
 | 2      | Static 1  |
 | 3      | Dynamic 1 |
 | 4      | Dynamic 2 |
-| 5      | NULL      |
+| 5      | Static 3  |
 | 6      | NULL      |
 
 ## Get flag
@@ -107,3 +107,14 @@ Kết quả:
 
 Quá dễ, làm 1 được 2. Bê nguyên script lấy Dynamic flag 1 sang để lấy Dynamic flag 2. Lần này Dynamic flag 2 được mã hóa AES bằng hàm keygenerators.a.a(byte[], byte[]).
 
+### Static flag 3
+
+Tại MainActivity ta thấy code load thư viện native-lib.so
+
+Thư viện code luôn được lưu tại /lib/
+
+Chạy command strings lib ra tìm được Static flag 3.
+
+### Dynamic flag 3
+
+Phải reverse lại lib .... đọc code asm... chưa làm được.
