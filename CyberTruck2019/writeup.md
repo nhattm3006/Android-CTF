@@ -31,7 +31,7 @@ Các thông tin thêm về tài liệu, gợi ý, write up và flag đều có t
 | 1      | Static 2  |
 | 2      | Static 1  |
 | 3      | Dynamic 1 |
-| 4      | NULL      |
+| 4      | Dynamic 2 |
 | 5      | NULL      |
 | 6      | NULL      |
 
@@ -102,4 +102,8 @@ sys.stdin.read()
 Kết quả:
 
 ![](https://github.com/MinhNhatTran/Android-CTF/blob/master/CyberTruck2019/image/cybertruck-3.png)
+
+### Dynamic flag 2
+
+Quá dễ, làm 1 được 2. Bê nguyên script lấy Dynamic flag 1 sang để lấy Dynamic flag 2. Lần này Dynamic flag 2 được mã hóa AES bằng hàm keygenerators.a.a(byte[], byte[]).
 
