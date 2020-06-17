@@ -49,4 +49,57 @@ Reverse file bằng Bytecode Viewer, tìm thấy static flag 2 Challenge1.genera
 
 ### Dynamic flag 1
 
-Tiếp tục tập trung vào class Ch
+Tiếp tục tập trung vào class Challenge1. Flow như sau: constructor -> generateKey() -> generateDynamicKey(). Về cơ bản thì hàm generateDynamicKey() sẽ mã hóa DES string **"CyB3r_tRucK_Ch4113ng3"** với 1 khóa được tạo từ Static flag 1 (việc mã hóa thực hiện bằng hàm doFinal).
+
+Giờ thì mình phải sử dụng Frida để lấy được giá trị return của hàm generateDynamicKey(). Do hàm này trả về 1 byte array nên sẽ cần chuyển byte array > string.
+
+Frida script:
+```python
+import frida, sys
+
+package = "org.nowsecure.cybertruck"
+
+def append_zero(hex):
+	if len(hex) == 1:
+		return '0'+hex
+	return hex
+
+def on_message(message, data):
+	if message['type'] == 'send':
+		byte_array = message['payload']
+		flag = ""
+		for byte in byte_array:
+			if byte < 0:
+				flag += append_zero(str(hex(byte & 0xff))[2:])
+			else:
+				flag += append_zero(str(hex(byte))[2:])
+
+		print("[*] Flag: {}".format(flag))
+	else:
+		print(message)
+	
+
+jscode = """
+Java.perform(function(){
+	var Challenge1 = Java.use('org.nowsecure.cybertruck.keygenerators.Challenge1');
+	Challenge1.generateDynamicKey.overload('[B').implementation = function(var_1){
+		var result = this.generateDynamicKey(var_1);
+
+		send(result);
+		return result 
+	};
+});
+"""
+
+process = frida.get_usb_device().attach(package)
+script = process.create_script(jscode)
+script.on('message', on_message)
+print("[*] Hooking", package)
+script.load()
+sys.stdin.read()
+```
+
+Kết quả:
+
+![](https://github.com/MinhNhatTran/Android-CTF/blob/master/CyberTruck2019/image/cybertruck-3.png)
+
