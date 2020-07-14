@@ -44,7 +44,7 @@ Windows hay Linux đều cài đặt được các tool và môi trường.
   - [x] [Login (dễ)](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/writeup.md#login-d%E1%BB%85)
   - [x] [Social Engineering (khó)](https://github.com/MinhNhatTran/Android-CTF/blob/master/KGB%20messenger/writeup.md#social-engineering-kh%C3%B3)
 - [x] [UnCrackable Level 1](https://github.com/MinhNhatTran/Android-CTF/blob/master/UnCrackable%20Level%201/writeup.md)
-- [ ] CyberTruck2019:
-  - [ ] [Challenge1 - DES key: Completely Keyless. Completely safe](https://github.com/MinhNhatTran/Android-CTF/blob/master/CyberTruck2019/writeup.md#challenge1---des-key-completely-keyless-completely-safe)
-  - [ ] [Challenge2 - AES key: Your Cell Mobile Is Your Key](https://github.com/MinhNhatTran/Android-CTF/blob/master/CyberTruck2019/writeup.md#challenge2---aes-key-your-cell-mobile-is-your-key)
-  - [ ] [Challenge3 - Mr Truck: Unlock me Baby!](https://github.com/MinhNhatTran/Android-CTF/blob/master/CyberTruck2019/writeup.md#challenge3---mr-truck-unlock-me-baby)
+- [x] CyberTruck2019:
+  - [x] [Challenge1 - DES key: Completely Keyless. Completely safe](https://github.com/MinhNhatTran/Android-CTF/blob/master/CyberTruck2019/writeup.md#challenge1---des-key-completely-keyless-completely-safe)
+  - [x] [Challenge2 - AES key: Your Cell Mobile Is Your Key](https://github.com/MinhNhatTran/Android-CTF/blob/master/CyberTruck2019/writeup.md#challenge2---aes-key-your-cell-mobile-is-your-key)
+  - [x] [Challenge3 - Mr Truck: Unlock me Baby!](https://github.com/MinhNhatTran/Android-CTF/blob/master/CyberTruck2019/writeup.md#challenge3---mr-truck-unlock-me-baby)
