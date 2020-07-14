@@ -95,9 +95,9 @@ Decode hex 3 đoạn này được flag.
 ![Smali](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv9-0.png)
 
 Xem source code bằng bytecode viewer:
-- SmaliInject.class:
+- SmaliInject.class:  
 ![Smali](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv9-1.png)
-- SmaliInject$2.class:
+- SmaliInject$2.class:  
 ![Smali](https://github.com/MinhNhatTran/Android-CTF/blob/master/EVABS/image/lv9-2.png)
 
 Vậy là chỉ cần sửa biến **SIGNAL** trong class SmaliInject từ "LAB_OFF" -> "LAB_ON" rồi build và sign lại app là được. Sau khi cài đặt ấn button TURN ON là sẽ nhận được flag
